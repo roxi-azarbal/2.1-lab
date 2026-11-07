@@ -17,15 +17,18 @@ public class Line {
     }
 
     public double calculateSlope() {
-        double slope = (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
+        double slope = (double) (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
         return slope;
     }
 
     public String pointSlopeForm() {
-        return "(y - " + p2.getY() + ")" + " = " + calculateSlope() + "(x - " + p2.getX() + ")";
+        return "(y - " + p1.getY() + ")" + " = " + calculateSlope() + "(x - " + p1.getX() + ")";
     }
 
     public boolean isCoordinateOnLine(Point p) {
+        if (p == null) {
+            return false;
+        }
         double a = -(p2.getY() - p1.getY());
         double b = p2.getX() - p1.getX();
         double c = -(a * p1.getX() + b * p1.getY());
